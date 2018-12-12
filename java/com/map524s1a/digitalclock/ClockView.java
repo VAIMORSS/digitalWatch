@@ -21,7 +21,7 @@ public class ClockView extends View {
 
     int centarPoint=750;
     int radiusForSecond=450, radiusForMinute=350,radiusForHour=250,textRadius=550;
-    Date currentTime;
+    Calendar currentTime;
 
 
 
@@ -62,14 +62,14 @@ public class ClockView extends View {
     }
 
     public void timeSetter(){
-        currentTime = new Date();
-        currentTime=Calendar.getInstance().getTime();
-        minute=currentTime.getMinutes();
-        hour=currentTime.getHours();
+
+        currentTime=Calendar.getInstance();
+        minute=currentTime.get(Calendar.MINUTE);
+        hour=currentTime.get(Calendar.HOUR);
         if(hour>12){
             hour-=12;
         }
-        second=currentTime.getSeconds();
+        second=currentTime.get(Calendar.SECOND);
 
     }
 
